@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Patients</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #343a40; /* Dark background color */
+            color: #fff; /* White text color */
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            transition: background-color 0.3s ease; /* Smooth background transition */
+        }
+        h1 {
+            text-align: center;
+            color: #17a2b8; /* Light blue heading color */
+            font-size: 50px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+        }
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #495057; /* Dark grey form background */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Enhanced box shadow */
+            text-align: center; /* Center align form content */
+            margin-top: 20px; /* Add margin to separate from title */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            color: #fff; /* White label text color */
+            text-align: left; /* Align label text to the left */
+        }
+        input[type="text"], textarea {
+            width: calc(100% - 22px); /* Adjusted for padding */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #6c757d; /* Lighter grey border */
+            border-radius: 5px;
+            font-size: 18px;
+            background-color: #343a40; /* Dark background color for input */
+            color: #fff; /* White text color */
+            text-align: left; /* Align input text to the left */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        button {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 20px;
+            background-color: #007bff; /* Blue button background color */
+            color: #fff;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Button shadow */
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Move button slightly up */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Add Patients</h1>
+
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_name">Name:</label>
+        {{ form.name }}
+        
+        <label for="id_illness">Illness:</label>
+        {{ form.illness }}
+        
+        <button type="submit">Add Patient</button>
+    </form>
+</div>
+
+</body>
+</html>
